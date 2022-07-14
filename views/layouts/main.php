@@ -117,6 +117,13 @@ AppAsset::register($this);
                         <a href="<?= Url::to(['site/about']) ?>" class="nav-item nav-link">О нас</a>
                         <a href="<?= Url::to(['category/service']) ?>" class="nav-item nav-link">Наш сервис</a>
 
+                        <div class="nav-item dropdown">
+                            <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Каталог дизайнов</a>
+                            <div class="dropdown-menu rounded-0 m-0">
+                                <?= MenuWidget::widget(['tpl' => 'menu']) ?>
+                            </div>
+                        </div>
+                        
                         <?php if (Yii::$app->user->identity->role == 'user') : ?>
                             <div class="nav-item dropdown">
                                 <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Личный кабинет</a>
@@ -130,13 +137,6 @@ AppAsset::register($this);
                                 </div>
                             </div>
                         <?php endif; ?>
-
-                        <div class="nav-item dropdown">
-                            <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Каталог дизайнов</a>
-                            <div class="dropdown-menu rounded-0 m-0">
-                                <?= MenuWidget::widget(['tpl' => 'menu']) ?>
-                            </div>
-                        </div>
 
                     </div>
                 </div>
@@ -242,7 +242,7 @@ AppAsset::register($this);
                     <a class="text-white mb-2" href="<?= Url::to(['/site/contact']) ?>"><i class="fa fa-angle-right mr-2"></i>Связаться с нами</a>
                 </div>
             </div>
-
+            <?php if (Yii::$app->user->identity->role != 'admin') :  ?>
             <div class="col-lg-3 col-md-6 mb-5">
                 <h4 class="text-primary mb-4">Подписаться на новости сайта</h4>
                 <div id="news-form">
@@ -257,7 +257,7 @@ AppAsset::register($this);
                     </div>
                 </div>
             </div>
-
+            <?php endif ; ?>
         </div>
         <div class="container border-top border-secondary pt-5">
             <p class="m-0 text-center text-white">
