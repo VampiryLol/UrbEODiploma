@@ -1,0 +1,11 @@
+.del-item{
+  cursor: pointer;
+}
+
+.cart-del-item{
+  cursor: pointer;
+}
+
+.none{
+  display: none;
+}
